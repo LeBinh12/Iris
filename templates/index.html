@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân Loại Hoa Iris</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+    <h1>Dự Đoán Loài Hoa Iris</h1>
+    <form method="POST">
+        <label for="sepal_length">Chiều dài đài hoa (sepal length):</label>
+        <input type="text" id="sepal_length" name="sepal_length" required><br>
+
+        <label for="sepal_width">Chiều rộng đài hoa (sepal width):</label>
+        <input type="text" id="sepal_width" name="sepal_width" required><br>
+
+        <label for="petal_length">Chiều dài cánh hoa (petal length):</label>
+        <input type="text" id="petal_length" name="petal_length" required><br>
+
+        <label for="petal_width">Chiều rộng cánh hoa (petal width):</label>
+        <input type="text" id="petal_width" name="petal_width" required><br>
+
+        <input type="submit" value="Dự Đoán">
+    </form>
+
+    {% if predicted_class is not none %}
+        <h2>Loài hoa được dự đoán: {{ predicted_class }}</h2>
+    {% endif %}
+</body>
+</html>
